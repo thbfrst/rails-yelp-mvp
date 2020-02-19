@@ -1,3 +1,19 @@
+require 'faker'
+
+Restaurant.destroy_all
+
+fixed_list = ['chinese', 'italian', 'japanese', 'french', 'belgian']
+
+5.times do
+  p Restaurant.create!({
+    name: Faker::Name.name,
+    address: Faker::Address.street_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    category: fixed_list.sample
+  })
+end
+
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
